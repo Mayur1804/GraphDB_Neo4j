@@ -10,7 +10,7 @@ from app.database import get_vector_index
 from app.tools import structured_retriever, normalize_text
 
 # Models
-llmgemma = ChatOllama(model="gemma3:4b", temperature=0.1)
+llmgemma = ChatOllama(model="gemma3:4b", temperature=0.0)
 vector_index = get_vector_index()
 
 # Entity Extraction
@@ -35,7 +35,7 @@ def _format_chat_history(chat_history):
     return buffer
 
 # Search Query Branch
-_template = """Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.
+_template = """Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question..
 Chat History: {chat_history}
 Follow Up Input: {question}
 Standalone question:"""
@@ -54,7 +54,7 @@ search_query = RunnableBranch(
 template = """Answer the question based only on the following context:
 {context}
 Question: {question}
-Use natural language and be concise.
+Use natural language and be concise.Answer ONLY in English.DO NOT include self-corrections, apologies, or meta-commentary about the quality of the answer.
 Answer:"""
 prompt = ChatPromptTemplate.from_template(template)
 
