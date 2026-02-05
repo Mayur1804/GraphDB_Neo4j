@@ -1,0 +1,12 @@
+langchain
+langchain-core
+langchain_community
+langchain-groq
+langchain-ollama
+neo4j
+python-dotenv
+langchain-neo4j
+wikipedia
+tiktoken
+langchain_experimental
+pydantic
